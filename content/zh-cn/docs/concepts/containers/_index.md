@@ -1,7 +1,8 @@
+
 ---
 title: "容器"
 weight: 40
-description: 打包应用及其运行依赖环境的技术。
+description: 打包**应用及其运行依赖环境**的技术。
 content_type: concept
 ---
 
@@ -20,9 +21,9 @@ cluster runs the containers that form the
 Containers in a Pod are co-located and co-scheduled to run on the same node.
 -->
 每个运行的容器都是可重复的；
-包含依赖环境在内的标准，意味着无论你在哪里运行它都会得到相同的行为。
+包含**依赖环境**在内的标准，意味着无论你在哪里运行它都会得到相同的行为。
 
-容器将应用程序从底层的主机设施中解耦。
+**容器将_应用程序_从底层的主机设施中解耦**。
 这使得在不同的云或 OS 环境中部署更加容易。
 
 Kubernetes 集群中的每个{{< glossary_tooltip text="节点" term_id="node" >}}都会运行容器，
@@ -48,16 +49,21 @@ updated image.
 
 ## 容器镜像 {#container-images}
 [容器镜像](/zh-cn/docs/concepts/containers/images/)是一个随时可以运行的软件包，
-包含运行应用程序所需的一切：代码和它需要的所有运行时、应用程序和系统库，以及一些基本设置的默认值。
+包含**运行应用程序所需的一切：代码和它需要的所有运行时、应用程序和系统库，以及一些基本设置的默认值。**
 
 容器旨在设计成无状态且[不可变的](https://glossary.cncf.io/immutable-infrastructure/)：
 你不应更改已经运行的容器的代码。如果有一个容器化的应用程序需要修改，
 正确的流程是：先构建包含更改的新镜像，再基于新构建的镜像重新运行容器。
+**容器旨在设计成无状态且不可变的**
 
 <!-- ## Container runtimes -->
 ## 容器运行时  {#container-runtimes}
 
 {{< glossary_definition term_id="container-runtime" length="all" >}}
+
+**容器运行环境是负责运行_容器_的软件**。
+
+Kubernetes 支持许多容器运行环境，例如 containerd、 CRI-O 以及 Kubernetes CRI (容器运行环境接口) 的其他任何实现。
 
 <!--
 Usually, you can allow your cluster to pick the default container runtime
