@@ -1,11 +1,12 @@
+
 ---
 title: Kubernetes API
 content_type: concept
 weight: 40
 description: >
-  Kubernetes API 使你可以查询和操纵 Kubernetes 中对象的状态。
-  Kubernetes 控制平面的核心是 API 服务器和它暴露的 HTTP API。
-  用户、集群的不同部分以及外部组件都通过 API 服务器相互通信。
+  Kubernetes API 使你可以查询和操纵 Kubernetes 中**对象的状态**。
+  Kubernetes **控制平面的核心是 API 服务器和它暴露的 HTTP API**。
+  **用户、集群的不同部分以及外部组件都通过 _API 服务器_相互通信**。
 card:
   name: concepts
   weight: 30
@@ -38,6 +39,7 @@ The Kubernetes API lets you query and manipulate the state of API objects in Kub
 Kubernetes {{< glossary_tooltip text="控制面" term_id="control-plane" >}}的核心是
 {{< glossary_tooltip text="API 服务器" term_id="kube-apiserver" >}}。
 API 服务器负责提供 HTTP API，以供用户、集群中的不同部分和集群外部组件相互通信。
+**控制面的核心是 API 服务器**。
 
 Kubernetes API 使你可以在 Kubernetes 中查询和操纵 API 对象
 （例如 Pod、Namespace、ConfigMap 和 Event）的状态。
