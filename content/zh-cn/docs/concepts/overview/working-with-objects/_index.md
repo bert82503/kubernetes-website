@@ -1,11 +1,12 @@
+
 ---
 title: Kubernetes 对象
 content_type: concept
 weight: 10
 description: >
-  Kubernetes 对象是 Kubernetes 系统中的持久性实体。
-  Kubernetes 使用这些实体表示你的集群状态。
-  了解 Kubernetes 对象模型以及如何使用这些对象。
+  Kubernetes **对象是 Kubernetes 系统中的持久性实体**。
+  Kubernetes **使用这些实体表示你的集群状态**。
+  了解 Kubernetes **对象模型以及如何使用这些对象**。
 simple_list: true
 card:
   name: concepts
@@ -48,8 +49,8 @@ entities to represent the state of your cluster. Specifically, they can describe
 -->
 ## 理解 Kubernetes 对象    {#kubernetes-objects}
 
-在 Kubernetes 系统中，**Kubernetes 对象**是持久化的实体。
-Kubernetes 使用这些实体去表示整个集群的状态。
+在 Kubernetes 系统中，**Kubernetes 对象**是持久化的**实体**。
+Kubernetes 使用这些实体去**表示整个集群的状态**。
 具体而言，它们描述了如下信息：
 
 * 哪些容器化应用正在运行（以及在哪些节点上运行）
