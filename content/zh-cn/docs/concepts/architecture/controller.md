@@ -1,3 +1,4 @@
+
 ---
 title: 控制器
 content_type: concept
@@ -55,7 +56,7 @@ detail.
 -->
 ## 控制器模式 {#controller-pattern}
 
-一个控制器至少追踪一种类型的 Kubernetes 资源。这些
+**一个控制器至少追踪一种类型的 Kubernetes 资源**。这些
 {{< glossary_tooltip text="对象" term_id="object" >}}
 有一个代表期望状态的 `spec` 字段。
 该资源的控制器负责确保其当前状态接近期望状态。
