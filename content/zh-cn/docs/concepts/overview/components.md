@@ -1,8 +1,9 @@
+
 ---
 title: Kubernetes 组件
 content_type: concept
 description: >
-  Kubernetes 集群由控制平面的组件和一组称为节点的机器组成。
+  Kubernetes **集群由_控制平面的组件_和_一组称为节点的机器_组成**。
 weight: 30
 card:
   name: concepts
@@ -33,6 +34,11 @@ a complete and working Kubernetes cluster.
 {{ < figure src="/images/docs/components-of-kubernetes.svg" alt="Components of Kubernetes" caption="The components of a Kubernetes cluster" class="diagram-large" >}}
 -->
 当你部署完 Kubernetes，便拥有了一个完整的集群。
+
+**一组工作机器，称为 节点，会运行容器化应用程序**。每个集群至少有一个工作节点。
+
+工作节点会托管 Pod ，而 Pod 就是作为应用负载的组件。控制平面管理集群中的工作节点和 Pod。
+在生产环境中，控制平面通常跨多台计算机运行，一个集群通常运行多个节点，提供容错性和高可用性。
 
 {{< glossary_definition term_id="cluster" length="all" >}}
 
@@ -93,10 +99,10 @@ Some types of these controllers are:
 -->
 这些控制器包括：
 
-* 节点控制器（Node Controller）：负责在节点出现故障时进行通知和响应
-* 任务控制器（Job Controller）：监测代表一次性任务的 Job 对象，然后创建 Pods 来运行这些任务直至完成
-* 端点分片控制器（EndpointSlice controller）：填充端点分片（EndpointSlice）对象（以提供 Service 和 Pod 之间的链接）。
-* 服务账号控制器（ServiceAccount controller）：为新的命名空间创建默认的服务账号（ServiceAccount）。
+* **节点控制器**（Node Controller）：负责在节点出现故障时进行通知和响应
+* **任务控制器**（Job Controller）：监测代表一次性任务的 Job 对象，然后创建 Pods 来运行这些任务直至完成
+* **端点分片控制器**（EndpointSlice controller）：填充端点分片（EndpointSlice）对象（以提供 Service 和 Pod 之间的链接）。
+* **服务账号控制器**（ServiceAccount controller）：为新的**命名空间**创建默认的服务账号（ServiceAccount）。
 
 <!--
 ### cloud-controller-manager
