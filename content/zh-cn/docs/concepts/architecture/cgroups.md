@@ -1,3 +1,4 @@
+
 ---
 title: 关于 cgroup v2
 content_type: concept
@@ -23,11 +24,13 @@ includes cpu/memory requests and limits for containerized workloads.
 There are two versions of cgroups in Linux: cgroup v1 and cgroup v2. cgroup v2 is
 the new generation of the `cgroup` API.
 -->
-在 Linux 上，{{< glossary_tooltip text="控制组" term_id="cgroup" >}}约束分配给进程的资源。
+在 Linux 上，{{< glossary_tooltip text="控制组" term_id="cgroup" >}}约束分配给**进程的资源**。
+**控制组约束分配**给**进程**的**资源**。
 
 {{< glossary_tooltip text="kubelet" term_id="kubelet" >}} 和底层容器运行时都需要对接 cgroup
 来强制执行[为 Pod 和容器管理资源](/zh-cn/docs/concepts/configuration/manage-resources-containers/)，
-这包括为容器化工作负载配置 CPU/内存请求和限制。
+这包括**为容器化工作负载配置 CPU/内存请求和限制**。
+**强制执行为 Pod 和容器管理资源**
 
 Linux 中有两个 cgroup 版本：cgroup v1 和 cgroup v2。cgroup v2 是新一代的 `cgroup` API。
 
@@ -45,7 +48,7 @@ cgroup v2 is the next version of the Linux `cgroup` API. cgroup v2 provides a
 unified control system with enhanced resource management
 capabilities.
 -->
-cgroup v2 是 Linux `cgroup` API 的下一个版本。cgroup v2 提供了一个具有增强资源管理能力的统一控制系统。
+cgroup v2 是 Linux `cgroup` API 的下一个版本。cgroup v2 提供了一个具有**增强资源管理能力的统一控制系统**。
 
 <!--
 cgroup v2 offers several improvements over cgroup v1, such as the following:
@@ -59,11 +62,11 @@ cgroup v2 offers several improvements over cgroup v1, such as the following:
 -->
 cgroup v2 对 cgroup v1 进行了多项改进，例如：
 
-- API 中单个统一的层次结构设计
+- API 中单个**统一的层次结构设计**
 - 更安全的子树委派给容器
 - 更新的功能特性，
   例如[压力阻塞信息（Pressure Stall Information，PSI）](https://www.kernel.org/doc/html/latest/accounting/psi.html)
-- 跨多个资源的增强资源分配管理和隔离
+- 跨多个资源的增强**资源分配管理和隔离**
   - 统一核算不同类型的内存分配（网络内存、内核内存等）
   - 考虑非即时资源变化，例如页面缓存回写
 
