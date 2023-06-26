@@ -1,3 +1,4 @@
+
 ---
 title: 节点
 content_type: concept
@@ -30,11 +31,13 @@ The [components](/docs/concepts/overview/components/#node-components) on a node 
 {{< glossary_tooltip text="container runtime" term_id="container-runtime" >}}, and the
 {{< glossary_tooltip text="kube-proxy" term_id="kube-proxy" >}}.
 -->
-Kubernetes 通过将容器放入在节点（Node）上运行的 Pod
+Kubernetes 通过将**容器**放入在**节点（Node）上运行的 Pod**
 中来执行你的{{< glossary_tooltip text="工作负载" term_id="workload" >}}。
-节点可以是一个虚拟机或者物理机器，取决于所在的集群配置。
+**节点可以是一个虚拟机或者物理机器**，取决于所在的集群配置。
 每个节点包含运行 {{< glossary_tooltip text="Pod" term_id="pod" >}} 所需的服务；
 这些节点由{{< glossary_tooltip text="控制面" term_id="control-plane" >}}负责管理。
+**将容器放入在节点（Node）上运行的 Pod 中来执行你的工作负载**。
+每个节点包含运行 Pod 所需的服务
 
 通常集群中会有若干个节点；而在一个学习所用或者资源受限的环境中，你的集群中也可能只有一个节点。
 
@@ -42,6 +45,7 @@ Kubernetes 通过将容器放入在节点（Node）上运行的 Pod
 {{< glossary_tooltip text="kubelet" term_id="kubelet" >}}、
 {{< glossary_tooltip text="容器运行时" term_id="container-runtime" >}}以及
 {{< glossary_tooltip text="kube-proxy" term_id="kube-proxy" >}}。
+节点上的组件包括 kubelet、 容器运行时以及 kube-proxy。
 
 <!-- body -->
 <!--
@@ -133,6 +137,7 @@ first and re-added after the update.
 和类似节点标签这类属性。这可能在节点被更改但其名称未变时导致系统状态不一致。
 如果某个 Node 需要被替换或者大量变更，需要从 API 服务器移除现有的 Node 对象，
 之后再在更新之后重新将其加入。
+**节点的名称用来标识 Node 对象**。
 
 <!--
 ### Self-registration of Nodes
