@@ -1,3 +1,4 @@
+
 ---
 title: "服务、负载均衡和联网"
 weight: 60
@@ -18,17 +19,17 @@ application configuration, and migration.
 ## Kubernetes 网络模型   {#the-kubernetes-network-model}
 
 集群中每一个 [`Pod`](/zh-cn/docs/concepts/workloads/pods/) 都会获得自己的、
-独一无二的 IP 地址，
-这就意味着你不需要显式地在 `Pod` 之间创建链接，你几乎不需要处理容器端口到主机端口之间的映射。
-这将形成一个干净的、向后兼容的模型；在这个模型里，从端口分配、命名、服务发现、
+独一无二的 **IP 地址**，
+这就意味着你不需要显式地**在 `Pod` 之间创建链接**，你几乎不需要处理**容器端口到主机端口之间的映射**。
+这将形成一个干净的、向后兼容的模型；在这个模型里，从**端口分配、命名、服务发现、
 [负载均衡](/zh-cn/docs/concepts/services-networking/ingress/#load-balancing)、
-应用配置和迁移的角度来看，`Pod` 可以被视作虚拟机或者物理主机。
+应用配置和迁移**的角度来看，`Pod` 可以被视作虚拟机或者物理主机。
 
 <!--
 Kubernetes imposes the following fundamental requirements on any networking
 implementation (barring any intentional network segmentation policies):
 -->
-Kubernetes 强制要求所有网络设施都满足以下基本要求（从而排除了有意隔离网络的策略）：
+Kubernetes 强制要求所有网络设施都满足以下基本要求（从而排除了有意**隔离网络的策略**）：
 
 <!--
 * pods can communicate with all other pods on any other [node](/docs/concepts/architecture/nodes/) 
@@ -65,7 +66,7 @@ usage, but this is no different from processes in a VM.  This is called the
 如果你的任务开始是在虚拟机中运行的，你的虚拟机有一个 IP，
 可以和项目中其他虚拟机通信。这里的模型是基本相同的。
 
-Kubernetes 的 IP 地址存在于 `Pod` 范围内 —— 容器共享它们的网络命名空间 ——
+Kubernetes 的 IP 地址存在于 `Pod` 范围内 —— 容器共享它们的**网络命名空间** ——
 包括它们的 IP 地址和 MAC 地址。
 这就意味着 `Pod` 内的容器都可以通过 `localhost` 到达对方端口。
 这也意味着 `Pod` 内的容器需要相互协调端口的使用，但是这和虚拟机中的进程似乎没有什么不同，
@@ -99,14 +100,14 @@ Kubernetes networking addresses four concerns:
 -->
 Kubernetes 网络解决四方面的问题：
 
-- 一个 Pod 中的容器之间[通过本地回路（loopback）通信](/zh-cn/docs/concepts/services-networking/dns-pod-service/)。
-- 集群网络在不同 Pod 之间提供通信。
+- 一个 **Pod 中的容器**之间[通过本地回路（loopback）通信](/zh-cn/docs/concepts/services-networking/dns-pod-service/)。
+- **集群网络**在不同 Pod 之间提供通信。
 - [Service](/zh-cn/docs/concepts/services-networking/service/) API
   允许你[向外暴露 Pod 中运行的应用](/zh-cn/docs/tutorials/services/connect-applications-service/)，
-  以支持来自于集群外部的访问。
+  以支持来自于**集群外部的访问**。
   - [Ingress](/zh-cn/docs/concepts/services-networking/ingress/)
-    提供专门用于暴露 HTTP 应用程序、网站和 API 的额外功能。
-- 你也可以使用 Service
+    提供专门用于**暴露 HTTP** 应用程序、网站和 API 的额外功能。
+- 你也可以使用 **Service**
   来[发布仅供集群内部使用的服务](/zh-cn/docs/concepts/services-networking/service-traffic-policy/)。
 
 <!--
