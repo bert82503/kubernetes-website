@@ -1,11 +1,12 @@
+
 ---
 title: 服务（Service）
 feature:
   title: 服务发现与负载均衡
   description: >
-    无需修改你的应用程序去使用陌生的服务发现机制。Kubernetes 为容器提供了自己的 IP 地址和一个 DNS 名称，并且可以在它们之间实现负载均衡。
+    无需修改你的应用程序去使用陌生的**服务发现机制**。Kubernetes 为**容器**提供了**自己的 IP 地址和一个 DNS 名称**，并且可以在它们之间实现**负载均衡**。
 description: >-
-  将在集群中运行的应用程序暴露在单个外向端点后面，即使工作负载分散到多个后端也是如此。
+  将在集群中运行的应用程序暴露在**单个外向端点**后面，即使工作负载分散到多个后端也是如此。
 content_type: concept
 weight: 10
 ---
@@ -38,9 +39,9 @@ You can run code in Pods, whether this is a code designed for a cloud-native wor
 an older app you've containerized. You use a Service to make that set of Pods available
 on the network so that clients can interact with it.
 -->
-Kubernetes 中 Service 的一个关键目标是让你无需修改现有应用程序就能使用不熟悉的服务发现机制。
+Kubernetes 中 **Service 的一个关键目标是让你无需修改现有应用程序就能使用不熟悉的服务发现机制**。
 你可以在 Pod 中运行代码，无需顾虑这是为云原生世界设计的代码，还是为已容器化的老应用程序设计的代码。
-你可以使用 Service 让一组 Pod 在网络上可用，让客户端能够与其交互。
+你可以**使用 Service 让一组 Pod 在网络上可用**，让客户端能够与其交互。
 
 <!--
 If you use a {{< glossary_tooltip term_id="deployment" >}} to run your app,
@@ -52,10 +53,10 @@ to match the desired state of your cluster. Pods are ephemeral resources (you sh
 expect that an individual Pod is reliable and durable).
 -->
 如果你使用 {{< glossary_tooltip term_id="deployment" >}} 来运行你的应用，
-Deployment 可以动态地创建和销毁 Pod。不管是这一刻还是下一刻，
+**Deployment 可以动态地创建和销毁 Pod**。不管是这一刻还是下一刻，
 你不知道有多少个这样的 Pod 正在工作以及健康与否；你可能甚至不知道那些健康的 Pod 是如何命名的。
-Kubernetes {{< glossary_tooltip term_id="pod" text="Pod" >}} 被创建和销毁以匹配集群的预期状态。
-Pod 是临时资源（你不应该期待单个 Pod 既可靠又耐用）。
+Kubernetes {{< glossary_tooltip term_id="pod" text="Pod" >}} **被创建和销毁以匹配集群的预期状态**。
+**Pod 是临时资源**（你不应该期待单个 Pod 既可靠又耐用）。
 
 <!--
 Each Pod gets its own IP address (Kubernetes expects network plugins to ensure this).
@@ -84,8 +85,8 @@ these endpoints are Pods) along with a policy about how to make those pods acces
 -->
 ## Kubernetes 中的 Service   {#service-in-k8s}
 
-Service API 是 Kubernetes 的组成部分，它是一种抽象，帮助你通过网络暴露 Pod 组合。
-每个 Service 对象定义一个逻辑组的端点（通常这些端点是 Pod）以及如何才能访问这些 Pod 的策略。
+Service API 是 Kubernetes 的组成部分，它是**一种抽象**，帮助你**通过网络暴露 Pod 组合**。
+**每个 Service 对象定义一个逻辑组的端点**（通常这些端点是 Pod）以及**如何才能访问这些 Pod 的策略**。
 
 <!--
 For example, consider a stateless image-processing backend which is running with
@@ -169,7 +170,7 @@ you use a tool such as `kubectl` to make those API calls for you.
 ## 定义 Service   {#defining-a-service}
 
 Service 在 Kubernetes 中是一个{{< glossary_tooltip text="对象" term_id="object" >}}
-（与 Pod 或 ConfigMap 类似的对象）。你可以使用 Kubernetes API 创建、查看或修改 Service 定义。
+（与 Pod 或 ConfigMap 类似的对象）。你可以使用 Kubernetes API 创建、查看或修改 **Service 定义**。
 通常你使用 `kubectl` 这类工具来进行这些 API 调用。
 
 <!--
@@ -205,7 +206,7 @@ read [Virtual IPs and Service Proxies](/docs/reference/networking/virtual-ips/).
 应用上述清单将创建一个名称为 "my-service" 的新 Service，它在所有 Pod 上指向
 TCP 端口 9376，并且具有标签 `app.kubernetes.io/name: MyApp`。
 
-Kubernetes 为该服务分配一个 IP 地址（有时称为 “集群 IP”），该 IP 地址由虚拟 IP 地址机制使用。
+Kubernetes **为该服务分配一个 IP 地址**（有时称为 “**集群 IP**”），**该 IP 地址由虚拟 IP 地址机制使用**。
 有关该机制的更多详情，请阅读[虚拟 IP 和服务代理](/zh-cn/docs/reference/networking/virtual-ips/)。
 
 <!--
@@ -640,7 +641,7 @@ The available `type` values and their behaviors are:
 -->
 ## 发布服务（服务类型）      {#publishing-services-service-types}
 
-对一些应用的某些部分（如前端），可能希望将其暴露给 Kubernetes 集群外部的 IP 地址。
+对一些应用的某些部分（如前端），可能希望**将其暴露给 Kubernetes 集群外部的 IP 地址**。
 
 Kubernetes `ServiceTypes` 允许指定你所需要的 Service 类型。
 
@@ -660,7 +661,7 @@ Kubernetes `ServiceTypes` 允许指定你所需要的 Service 类型。
   the same as if you had requested a Service of `type: ClusterIP`.
 -->
 `ClusterIP`
-: 通过集群的内部 IP 暴露服务，选择该值时服务只能够在集群内部访问。
+: 通过集群的内部 IP 暴露服务，选择该值时服务只能够**在集群内部访问**。
   这也是你没有为服务显式指定 `type` 时使用的默认值。
   你可以使用 [Ingress](/zh-cn/docs/concepts/services-networking/ingress/)
   或者 [Gateway API](https://gateway-api.sigs.k8s.io/) 向公众暴露服务。
@@ -682,12 +683,12 @@ Kubernetes `ServiceTypes` 允许指定你所需要的 Service 类型。
   No proxying of any kind is set up.
 -->
 [`LoadBalancer`](#loadbalancer)
-: 使用云提供商的负载均衡器向外部暴露服务。
+: 使用云提供商的**负载均衡器向外部暴露服务**。
   Kubernetes 不直接提供负载均衡组件；你必须提供一个，或者将你的 Kubernetes 集群与云提供商集成。
 
 [`ExternalName`](#externalname)
 : 将服务映射到 `externalName` 字段的内容（例如，映射到主机名 `api.foo.bar.example`）。
-  该映射将集群的 DNS 服务器配置为返回具有该外部主机名值的 `CNAME` 记录。 
+  该映射将**集群的 DNS 服务器配置**为返回具有该外部主机名值的 `CNAME` 记录。 
   无需创建任何类型代理。
 
 <!--
@@ -1821,7 +1822,7 @@ finding a Service: environment variables and DNS.
 -->
 ## 服务发现  {#discovering-services}
 
-对于在集群内运行的客户端，Kubernetes 支持两种主要的服务发现模式：环境变量和 DNS。
+对于在**集群内**运行的客户端，Kubernetes 支持两种主要的**服务发现模式：环境变量和 DNS**。
 
 <!--
 ### Environment variables
@@ -1899,10 +1900,10 @@ throughout your cluster then all Pods should automatically be able to resolve
 Services by their DNS name.
 -->
 你可以（几乎总是应该）使用[附加组件](/zh-cn/docs/concepts/cluster-administration/addons/)
-为 Kubernetes 集群安装 DNS 服务。
+为 Kubernetes 集群安装 **DNS 服务**。
 
 支持集群的 DNS 服务器（例如 CoreDNS）监视 Kubernetes API 中的新 Service，并为每个 Service 创建一组 DNS 记录。
-如果在整个集群中都启用了 DNS，则所有 Pod 都应该能够通过 DNS 名称自动解析 Service。
+如果在整个集群中都启用了 DNS，则所有 Pod 都应该能够**通过 DNS 名称自动解析 Service**。
 
 <!--
 For example, if you have a Service called `my-service` in a Kubernetes
@@ -1958,7 +1959,7 @@ mechanism Kubernetes provides to expose a Service with a virtual IP address.
 ## 虚拟 IP 寻址机制   {#virtual-ip-addressing-mechanism}
 
 阅读[虚拟 IP 和 Service 代理](/zh-cn/docs/reference/networking/virtual-ips/)以了解
-Kubernetes 提供的使用虚拟 IP 地址公开服务的机制。
+Kubernetes 提供的**使用虚拟 IP 地址公开服务的机制**。
 
 <!--
 ### Traffic policies
@@ -1971,7 +1972,7 @@ See [Traffic Policies](/docs/reference/networking/virtual-ips/#traffic-policies)
 ### 流量策略
 
 你可以设置 `.spec.internalTrafficPolicy` 和 `.spec.externalTrafficPolicy`
-字段来控制 Kubernetes 如何将流量路由到健康（“就绪”）的后端。
+字段来控制 Kubernetes **如何将流量路由到健康（“就绪”）的后端**。
 
 有关详细信息，请参阅[流量策略](/zh-cn/docs/reference/networking/virtual-ips/#traffic-policies)。
 
@@ -2046,7 +2047,7 @@ about the [Service API object](/docs/reference/generated/kubernetes-api/{{< para
 -->
 ## API 对象   {#api-object}
 
-Service 是 Kubernetes REST API 中的顶级资源。你可以找到有关
+Service 是 Kubernetes REST API 中的**顶级资源**。你可以找到有关
 [Service 对象 API](/docs/reference/generated/kubernetes-api/{{< param "version" >}}/#service-v1-core)
 的更多详细信息。
 
